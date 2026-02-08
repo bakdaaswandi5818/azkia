@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 
 // Product data
 const products = [
@@ -9,7 +8,8 @@ const products = [
     description: 'High-quality clay roof tiles in good condition. Perfect for renovation projects.',
     price: '$2.50/piece',
     image: '/images/roof-tiles.jpg',
-    category: 'Roofing'
+    category: 'Roofing',
+    icon: '🏠'
   },
   {
     id: 2,
@@ -17,7 +17,8 @@ const products = [
     description: 'Clean, washed sand suitable for concrete mixing and construction.',
     price: '$25/ton',
     image: '/images/sand.jpg',
-    category: 'Materials'
+    category: 'Materials',
+    icon: '⛱️'
   },
   {
     id: 3,
@@ -25,7 +26,8 @@ const products = [
     description: 'Reclaimed red bricks, cleaned and ready for reuse. Eco-friendly option.',
     price: '$0.50/piece',
     image: '/images/bricks.jpg',
-    category: 'Masonry'
+    category: 'Masonry',
+    icon: '🧱'
   },
   {
     id: 4,
@@ -33,7 +35,8 @@ const products = [
     description: 'Large natural stones ideal for foundations and retaining walls.',
     price: '$45/ton',
     image: '/images/foundation-stones.jpg',
-    category: 'Materials'
+    category: 'Materials',
+    icon: '🪨'
   },
   {
     id: 5,
@@ -41,7 +44,8 @@ const products = [
     description: 'Surplus cement from completed projects. Still in sealed bags.',
     price: '$8/bag',
     image: '/images/cement.jpg',
-    category: 'Materials'
+    category: 'Materials',
+    icon: '🏗️'
   },
   {
     id: 6,
@@ -49,105 +53,125 @@ const products = [
     description: 'Reclaimed wooden beams from demolitions. Strong and character-rich.',
     price: '$15/piece',
     image: '/images/wooden-beams.jpg',
-    category: 'Timber'
+    category: 'Timber',
+    icon: '🪵'
   }
 ]
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Header */}
-      <header className="bg-green-700 text-white shadow-lg">
+      <header className="bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white shadow-2xl sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold">Azkia Store</h1>
-              <p className="text-green-100 mt-1">Quality Used Home Appliances & Building Materials</p>
+            <div className="group">
+              <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-green-100 transition-all">
+                ✨ Azkia Store
+              </h1>
+              <p className="text-green-100 mt-1 text-sm md:text-base">Quality Used Home Appliances & Building Materials</p>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="hover:text-green-200 transition">Home</Link>
-              <Link href="/products" className="hover:text-green-200 transition">Products</Link>
-              <Link href="/about" className="hover:text-green-200 transition">About</Link>
-              <Link href="/contact" className="hover:text-green-200 transition">Contact</Link>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Home</Link>
+              <Link href="/products" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Products</Link>
+              <Link href="/about" className="hover:text-green-200 transition-all hover:scale-110 font-medium">About</Link>
+              <Link href="/contact" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Contact</Link>
             </nav>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Sustainable Building Materials
-          </h2>
-          <p className="text-xl md:text-2xl mb-8 text-green-100">
-            Quality used materials at affordable prices
-          </p>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Reduce waste, save money, and build sustainably with our selection of 
-            reclaimed and surplus building materials.
-          </p>
-          <Link 
-            href="/products" 
-            className="inline-block bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition transform hover:scale-105"
-          >
-            Browse Products
-          </Link>
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-24 md:py-32">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute w-96 h-96 bg-primary-500 rounded-full blur-3xl opacity-20 -top-48 -left-48 animate-float"></div>
+          <div className="absolute w-96 h-96 bg-green-400 rounded-full blur-3xl opacity-20 -bottom-48 -right-48 animate-float" style={{animationDelay: '1s'}}></div>
+        </div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="animate-slide-in-up">
+            <h2 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+              <span className="block">Sustainable Building</span>
+              <span className="block bg-clip-text text-transparent bg-gradient-to-r from-green-200 to-white">
+                Materials
+              </span>
+            </h2>
+            <p className="text-xl md:text-3xl mb-6 text-green-100 font-light">
+              Quality used materials at affordable prices
+            </p>
+            <p className="text-base md:text-lg max-w-3xl mx-auto mb-10 text-green-50 leading-relaxed">
+              Reduce waste, save money, and build sustainably with our curated selection of 
+              reclaimed and surplus building materials.
+            </p>
+            <Link 
+              href="/products" 
+              className="inline-block bg-white text-primary-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition-all transform hover:scale-110 hover:shadow-2xl shadow-glow"
+            >
+              🛍️ Browse Products →
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">♻️</div>
-              <h3 className="text-xl font-semibold mb-2">Eco-Friendly</h3>
-              <p className="text-gray-600">Reduce waste by reusing quality materials</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border border-green-100 hover-lift card-shine">
+              <div className="text-6xl mb-6 animate-float">♻️</div>
+              <h3 className="text-2xl font-bold mb-3 gradient-text">Eco-Friendly</h3>
+              <p className="text-gray-600 leading-relaxed">Reduce waste by reusing quality materials and help create a sustainable future</p>
             </div>
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">💰</div>
-              <h3 className="text-xl font-semibold mb-2">Affordable</h3>
-              <p className="text-gray-600">Save up to 70% compared to new materials</p>
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border border-green-100 hover-lift card-shine" style={{animationDelay: '0.2s'}}>
+              <div className="text-6xl mb-6 animate-float" style={{animationDelay: '0.5s'}}>💰</div>
+              <h3 className="text-2xl font-bold mb-3 gradient-text">Affordable</h3>
+              <p className="text-gray-600 leading-relaxed">Save up to 70% compared to new materials without compromising on quality</p>
             </div>
-            <div className="text-center p-6">
-              <div className="text-4xl mb-4">✅</div>
-              <h3 className="text-xl font-semibold mb-2">Quality Checked</h3>
-              <p className="text-gray-600">All materials inspected for quality</p>
+            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-green-50 to-white border border-green-100 hover-lift card-shine" style={{animationDelay: '0.4s'}}>
+              <div className="text-6xl mb-6 animate-float" style={{animationDelay: '1s'}}>✅</div>
+              <h3 className="text-2xl font-bold mb-3 gradient-text">Quality Checked</h3>
+              <p className="text-gray-600 leading-relaxed">All materials thoroughly inspected and verified for durability</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Products Section */}
-      <section className="py-16">
+      <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Featured Products</h2>
-          <p className="text-center text-gray-600 mb-12">
-            Browse our selection of quality used building materials
-          </p>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="gradient-text">Featured Products</span>
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Browse our handpicked selection of quality used building materials
+            </p>
+          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+            {products.map((product, index) => (
               <div 
                 key={product.id} 
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition transform hover:-translate-y-1"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift card-shine border border-gray-100 group"
+                style={{animationDelay: `${index * 0.1}s`}}
               >
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-6xl">📦</span>
+                <div className="h-56 bg-gradient-to-br from-primary-100 via-primary-50 to-green-100 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-green-500/10"></div>
+                  <span className="text-8xl group-hover:scale-125 transition-transform duration-500 relative z-10">{product.icon}</span>
                 </div>
                 <div className="p-6">
-                  <div className="text-sm text-green-600 font-semibold mb-2">
+                  <div className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-semibold mb-3">
                     {product.category}
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+                  <h3 className="text-2xl font-bold mb-3 text-gray-800 group-hover:text-primary-600 transition-colors">{product.name}</h3>
+                  <p className="text-gray-600 mb-5 leading-relaxed">{product.description}</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-green-700">
+                    <span className="text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
                       {product.price}
                     </span>
-                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                      Contact Us
+                    <button className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-glow transition-all transform hover:scale-105">
+                      Inquire
                     </button>
                   </div>
                 </div>
@@ -158,49 +182,52 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-green-700 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
-          <p className="text-xl mb-8">Contact us today for a quote or to check availability</p>
+      <section className="relative overflow-hidden bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white py-20">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute w-96 h-96 bg-green-500 rounded-full blur-3xl opacity-20 top-0 right-0 animate-float"></div>
+        </div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Start Your Project?</h2>
+          <p className="text-xl md:text-2xl mb-10 text-green-100">Contact us today for a quote or to check availability</p>
           <Link 
             href="/contact" 
-            className="inline-block bg-white text-green-700 px-8 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+            className="inline-block bg-white text-primary-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-green-50 transition-all transform hover:scale-110 hover:shadow-2xl"
           >
-            Get in Touch
+            📞 Get in Touch
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
-              <h3 className="text-xl font-bold mb-4">Azkia Store</h3>
-              <p className="text-gray-400">
+              <h3 className="text-2xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-green-300">✨ Azkia Store</h3>
+              <p className="text-gray-400 leading-relaxed">
                 Your trusted source for quality used building materials and home appliances.
               </p>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li><Link href="/" className="text-gray-400 hover:text-white">Home</Link></li>
-                <li><Link href="/products" className="text-gray-400 hover:text-white">Products</Link></li>
-                <li><Link href="/about" className="text-gray-400 hover:text-white">About</Link></li>
-                <li><Link href="/contact" className="text-gray-400 hover:text-white">Contact</Link></li>
+              <ul className="space-y-3">
+                <li><Link href="/" className="text-gray-400 hover:text-white transition-all hover:translate-x-2 inline-block">→ Home</Link></li>
+                <li><Link href="/products" className="text-gray-400 hover:text-white transition-all hover:translate-x-2 inline-block">→ Products</Link></li>
+                <li><Link href="/about" className="text-gray-400 hover:text-white transition-all hover:translate-x-2 inline-block">→ About</Link></li>
+                <li><Link href="/contact" className="text-gray-400 hover:text-white transition-all hover:translate-x-2 inline-block">→ Contact</Link></li>
               </ul>
             </div>
             <div>
               <h3 className="text-xl font-bold mb-4">Contact Info</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>📍 Location: TBD</li>
-                <li>📞 Phone: TBD</li>
-                <li>✉️ Email: info@azkia.com</li>
+              <ul className="space-y-3 text-gray-400">
+                <li className="flex items-center"><span className="mr-2">📍</span> Location: TBD</li>
+                <li className="flex items-center"><span className="mr-2">📞</span> Phone: TBD</li>
+                <li className="flex items-center"><span className="mr-2">✉️</span> Email: info@azkia.com</li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2026 Azkia Store. All rights reserved.</p>
+          <div className="border-t border-gray-700 mt-10 pt-8 text-center">
+            <p className="text-gray-400">&copy; 2026 Azkia Store. All rights reserved. Built with 💚 for sustainability.</p>
           </div>
         </div>
       </footer>

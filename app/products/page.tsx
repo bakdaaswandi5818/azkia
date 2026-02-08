@@ -8,7 +8,8 @@ const products = [
     price: '$2.50/piece',
     category: 'Roofing',
     stock: 'In Stock',
-    specifications: ['Material: Clay', 'Condition: Good', 'Minimum Order: 100 pieces']
+    specifications: ['Material: Clay', 'Condition: Good', 'Minimum Order: 100 pieces'],
+    icon: '🏠'
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const products = [
     price: '$25/ton',
     category: 'Materials',
     stock: 'In Stock',
-    specifications: ['Type: Fine Sand', 'Clean & Washed', 'Minimum Order: 1 ton']
+    specifications: ['Type: Fine Sand', 'Clean & Washed', 'Minimum Order: 1 ton'],
+    icon: '⛱️'
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const products = [
     price: '$0.50/piece',
     category: 'Masonry',
     stock: 'In Stock',
-    specifications: ['Type: Red Brick', 'Condition: Good', 'Minimum Order: 500 pieces']
+    specifications: ['Type: Red Brick', 'Condition: Good', 'Minimum Order: 500 pieces'],
+    icon: '🧱'
   },
   {
     id: 4,
@@ -35,7 +38,8 @@ const products = [
     price: '$45/ton',
     category: 'Materials',
     stock: 'In Stock',
-    specifications: ['Type: Natural Stone', 'Size: Mixed', 'Minimum Order: 0.5 ton']
+    specifications: ['Type: Natural Stone', 'Size: Mixed', 'Minimum Order: 0.5 ton'],
+    icon: '🪨'
   },
   {
     id: 5,
@@ -44,7 +48,8 @@ const products = [
     price: '$8/bag',
     category: 'Materials',
     stock: 'Limited Stock',
-    specifications: ['Weight: 50kg/bag', 'Sealed & Dry', 'Minimum Order: 10 bags']
+    specifications: ['Weight: 50kg/bag', 'Sealed & Dry', 'Minimum Order: 10 bags'],
+    icon: '🏗️'
   },
   {
     id: 6,
@@ -53,7 +58,8 @@ const products = [
     price: '$15/piece',
     category: 'Timber',
     stock: 'In Stock',
-    specifications: ['Type: Hardwood', 'Length: 2-4m', 'Condition: Good']
+    specifications: ['Type: Hardwood', 'Length: 2-4m', 'Condition: Good'],
+    icon: '🪵'
   },
   {
     id: 7,
@@ -62,7 +68,8 @@ const products = [
     price: '$30/ton',
     category: 'Materials',
     stock: 'In Stock',
-    specifications: ['Size: 10-40mm', 'Clean & Sorted', 'Minimum Order: 1 ton']
+    specifications: ['Size: 10-40mm', 'Clean & Sorted', 'Minimum Order: 1 ton'],
+    icon: '⚙️'
   },
   {
     id: 8,
@@ -71,7 +78,8 @@ const products = [
     price: '$5/sheet',
     category: 'Roofing',
     stock: 'In Stock',
-    specifications: ['Material: Galvanized Steel', 'Length: 2-3m', 'Condition: Good']
+    specifications: ['Material: Galvanized Steel', 'Length: 2-3m', 'Condition: Good'],
+    icon: '📐'
   }
 ]
 
@@ -79,30 +87,30 @@ export default function ProductsPage() {
   const categories = Array.from(new Set(products.map(p => p.category)))
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-green-50">
       {/* Header */}
-      <header className="bg-green-700 text-white shadow-lg">
+      <header className="bg-gradient-to-r from-primary-700 via-primary-600 to-primary-700 text-white shadow-2xl sticky top-0 z-50 backdrop-blur-sm bg-opacity-95">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold">Azkia Store</h1>
-              <p className="text-green-100 mt-1">Quality Used Home Appliances & Building Materials</p>
+              <h1 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-green-100">✨ Azkia Store</h1>
+              <p className="text-green-100 mt-1 text-sm md:text-base">Quality Used Home Appliances & Building Materials</p>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <Link href="/" className="hover:text-green-200 transition">Home</Link>
-              <Link href="/products" className="hover:text-green-200 transition">Products</Link>
-              <Link href="/about" className="hover:text-green-200 transition">About</Link>
-              <Link href="/contact" className="hover:text-green-200 transition">Contact</Link>
+            <nav className="hidden md:flex space-x-8">
+              <Link href="/" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Home</Link>
+              <Link href="/products" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Products</Link>
+              <Link href="/about" className="hover:text-green-200 transition-all hover:scale-110 font-medium">About</Link>
+              <Link href="/contact" className="hover:text-green-200 transition-all hover:scale-110 font-medium">Contact</Link>
             </nav>
           </div>
         </div>
       </header>
 
       {/* Page Header */}
-      <section className="bg-green-600 text-white py-12">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-4">Our Products</h2>
-          <p className="text-xl text-green-100">
+      <section className="bg-gradient-to-r from-primary-600 to-primary-800 text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Our Products</h2>
+          <p className="text-xl text-green-100 max-w-2xl mx-auto">
             Browse our complete catalog of quality used building materials
           </p>
         </div>
@@ -112,16 +120,16 @@ export default function ProductsPage() {
       <section className="py-12">
         <div className="container mx-auto px-4">
           {/* Category Filter */}
-          <div className="mb-8">
-            <h3 className="text-lg font-semibold mb-4">Categories</h3>
-            <div className="flex flex-wrap gap-2">
-              <button className="px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
-                All
+          <div className="mb-10">
+            <h3 className="text-lg font-semibold mb-4 text-gray-700">Filter by Category</h3>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-full hover:shadow-glow transition-all transform hover:scale-105 font-semibold">
+                All Products
               </button>
               {categories.map((category) => (
                 <button
                   key={category}
-                  className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full hover:bg-gray-300 transition"
+                  className="px-6 py-3 bg-white text-gray-700 rounded-full hover:bg-primary-50 hover:text-primary-700 transition-all border border-gray-200 hover:border-primary-300 font-medium hover:scale-105 transform"
                 >
                   {category}
                 </button>
@@ -131,46 +139,51 @@ export default function ProductsPage() {
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {products.map((product) => (
+            {products.map((product, index) => (
               <div
                 key={product.id}
-                className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition"
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift card-shine border border-gray-100 group"
+                style={{animationDelay: `${index * 0.05}s`}}
               >
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-6xl">📦</span>
+                <div className="h-48 bg-gradient-to-br from-primary-100 via-primary-50 to-green-100 flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-green-500/10"></div>
+                  <span className="text-7xl group-hover:scale-125 transition-transform duration-500 relative z-10">{product.icon}</span>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-green-600 font-semibold">
+                <div className="p-5">
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="inline-block px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-xs font-bold uppercase tracking-wide">
                       {product.category}
                     </span>
-                    <span className={`text-xs px-2 py-1 rounded ${
+                    <span className={`text-xs px-3 py-1 rounded-full font-semibold ${
                       product.stock === 'In Stock' 
-                        ? 'bg-green-100 text-green-800' 
-                        : 'bg-yellow-100 text-yellow-800'
+                        ? 'bg-green-100 text-green-700' 
+                        : 'bg-yellow-100 text-yellow-700'
                     }`}>
                       {product.stock}
                     </span>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{product.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                  <h3 className="text-xl font-bold mb-2 text-gray-800 group-hover:text-primary-600 transition-colors">{product.name}</h3>
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-2 leading-relaxed">
                     {product.description}
                   </p>
                   
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-sm mb-2">Specifications:</h4>
+                  <div className="mb-4 bg-gray-50 rounded-lg p-3">
+                    <h4 className="font-bold text-xs mb-2 text-gray-700 uppercase tracking-wide">Specifications:</h4>
                     <ul className="text-xs text-gray-600 space-y-1">
                       {product.specifications.map((spec, idx) => (
-                        <li key={idx}>• {spec}</li>
+                        <li key={idx} className="flex items-start">
+                          <span className="text-primary-600 mr-1">✓</span>
+                          <span>{spec}</span>
+                        </li>
                       ))}
                     </ul>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <span className="text-2xl font-bold text-green-700">
+                    <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-primary-800 bg-clip-text text-transparent">
                       {product.price}
                     </span>
-                    <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm">
+                    <button className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-5 py-2.5 rounded-full hover:shadow-glow transition-all text-sm font-semibold transform hover:scale-105">
                       Inquire
                     </button>
                   </div>
@@ -182,23 +195,23 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-green-700 text-white py-12">
+      <section className="bg-gradient-to-r from-primary-700 to-primary-600 text-white py-16">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-4">Need Something Specific?</h2>
-          <p className="mb-6">Contact us for custom orders or bulk pricing</p>
+          <h2 className="text-3xl font-bold mb-4">Need Something Specific?</h2>
+          <p className="mb-6 text-green-100 text-lg">Contact us for custom orders or bulk pricing</p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-green-700 px-6 py-3 rounded-lg font-semibold hover:bg-green-50 transition"
+            className="inline-block bg-white text-primary-700 px-8 py-4 rounded-full font-bold hover:bg-green-50 transition-all transform hover:scale-110 hover:shadow-2xl"
           >
-            Contact Us
+            📞 Contact Us
           </Link>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-10">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-400">&copy; 2026 Azkia Store. All rights reserved.</p>
+          <p className="text-gray-400">&copy; 2026 Azkia Store. All rights reserved. Built with 💚 for sustainability.</p>
         </div>
       </footer>
     </div>
